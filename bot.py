@@ -9,7 +9,7 @@ import os
 
 token = os.environ['TELEGRAM_TOKEN']
 
-bot = telebot.TeleBot(API_TOKEN)
+bot = telebot.TeleBot(token)
 
 
 # Handle '/start' and '/help'
