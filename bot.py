@@ -5,8 +5,9 @@
 from bs4 import BeautifulSoup
 import requests
 import telebot
+import os
 
-API_TOKEN = '5051387618:AAEFB8Pb79B3UVNqmWaOZXVtLKUqqq4GSEI'
+token = os.environ['TELEGRAM_TOKEN']
 
 bot = telebot.TeleBot(API_TOKEN)
 
