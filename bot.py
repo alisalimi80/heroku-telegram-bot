@@ -5,11 +5,10 @@
 from bs4 import BeautifulSoup
 import requests
 import telebot
-import os
 
-token = os.environ['TELEGRAM_TOKEN']
+API_TOKEN = '5051387618:AAEFB8Pb79B3UVNqmWaOZXVtLKUqqq4GSEI'
 
-bot = telebot.TeleBot(token)
+bot = telebot.TeleBot(API_TOKEN)
 
 
 # Handle '/start' and '/help'
@@ -46,8 +45,31 @@ def send_welcome(message):
 
         elem1 = soup.find_all(class_='info-price')
         dolar = elem1[5].text
+        teter = elem1[8].text
+
+
+        
 
         bot.reply_to(message,dolar)
+    except:
+        bot.reply_to(message,"404 not found")
+
+
+@bot.message_handler(commands=['dolar'])
+def send_welcome(message):
+    try:
+        url = "https://www.tgju.org/"
+        req = requests.get(url)
+        soup = BeautifulSoup(req.text, "html.parser")
+
+        elem1 = soup.find_all(class_='info-price')
+        dolar = elem1[5].text
+        teter = elem1[8].text
+
+
+        
+
+        bot.reply_to(message,teter)
     except:
         bot.reply_to(message,"404 not found")
         
