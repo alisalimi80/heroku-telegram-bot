@@ -127,7 +127,9 @@ def send_welcome(message):
     itembtne = types.KeyboardButton('e')
     markup.row(itembtna, itembtnv)
     markup.row(itembtnc, itembtnd, itembtne)
-    bot.send_message(message, "Choose one letter:", reply_markup=markup)
+    cid = message.chat.id
+    bot.send_message(cid, "Choose one letter:", reply_markup=markup)
+    
         
 
     
