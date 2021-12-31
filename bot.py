@@ -64,7 +64,7 @@ def send_welcome(message):
 
         elem1 = soup.find_all(class_='info-price')
         dolar = elem1[5].text
-        teter = elem1[8].text
+        teter = elem1[7].text
 
 
         
