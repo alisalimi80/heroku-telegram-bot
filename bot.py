@@ -55,7 +55,7 @@ def send_welcome(message):
         bot.reply_to(message,"404 not found")
 
 
-@bot.message_handler(commands=['dolar'])
+@bot.message_handler(commands=['teter'])
 def send_welcome(message):
     try:
         url = "https://www.tgju.org/"
