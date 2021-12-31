@@ -5,10 +5,14 @@
 from bs4 import BeautifulSoup
 import requests
 import telebot
+from telebot import types
+import tb
+
 
 API_TOKEN = '5051387618:AAEFB8Pb79B3UVNqmWaOZXVtLKUqqq4GSEI'
 
 bot = telebot.TeleBot(API_TOKEN)
+
 
 
 # Handle '/start' and '/help'
@@ -112,8 +116,18 @@ def send_welcome(message):
     except:
         bot.reply_to(message,"404 not found")
         
-
-
+@bot.message_handler(commands=['hello'])
+def send_welcome(message):
+    markup = types.ReplyKeyboardMarkup()
+    itembtna = types.KeyboardButton('a')
+    itembtnv = types.KeyboardButton('v')
+    itembtnc = types.KeyboardButton('c')
+    itembtnd = types.KeyboardButton('d')
+    itembtne = types.KeyboardButton('e')
+    markup.row(itembtna, itembtnv)
+    markup.row(itembtnc, itembtnd, itembtne)
+    bot.send_message(message, "Choose one letter:", reply_markup=markup)
+    
 
 
 # Handle all other messages with content_type 'text' (content_types defaults to ['text'])
