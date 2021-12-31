@@ -116,17 +116,7 @@ def send_welcome(message):
     except:
         bot.reply_to(message,"404 not found")
         
-@bot.message_handler(commands=['hello'])
-def send_welcome(message):
-    markup = types.ReplyKeyboardMarkup()
-    itembtna = types.KeyboardButton('a')
-    itembtnv = types.KeyboardButton('v')
-    itembtnc = types.KeyboardButton('c')
-    itembtnd = types.KeyboardButton('d')
-    itembtne = types.KeyboardButton('e')
-    markup.row(itembtna, itembtnv)
-    markup.row(itembtnc, itembtnd, itembtne)
-    bot.send_message(message, "Choose one letter:", reply_markup=markup)
+
     
 
 
