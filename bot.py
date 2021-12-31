@@ -108,7 +108,7 @@ def send_welcome(message):
 
         
 
-        bot.reply_to(message,tala)
+        bot.reply_to(message,bitcoin)
     except:
         bot.reply_to(message,"404 not found")
         
