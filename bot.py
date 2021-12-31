@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 import requests
 import telebot
 from telebot import types
-import tb
+
 
 
 API_TOKEN = '5051387618:AAEFB8Pb79B3UVNqmWaOZXVtLKUqqq4GSEI'
