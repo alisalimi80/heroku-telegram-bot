@@ -72,6 +72,45 @@ def send_welcome(message):
         bot.reply_to(message,teter)
     except:
         bot.reply_to(message,"404 not found")
+
+@bot.message_handler(commands=['tala'])
+def send_welcome(message):
+    try:
+        url = "https://www.tgju.org/"
+        req = requests.get(url)
+        soup = BeautifulSoup(req.text, "html.parser")
+
+        elem1 = soup.find_all(class_='info-price')
+        dolar = elem1[5].text
+        teter = elem1[7].text
+        tala = elem1[3].text
+
+
+        
+
+        bot.reply_to(message,tala)
+    except:
+        bot.reply_to(message,"404 not found")
+
+@bot.message_handler(commands=['bitcoin'])
+def send_welcome(message):
+    try:
+        url = "https://www.tgju.org/"
+        req = requests.get(url)
+        soup = BeautifulSoup(req.text, "html.parser")
+
+        elem1 = soup.find_all(class_='info-price')
+        dolar = elem1[5].text
+        teter = elem1[7].text
+        tala = elem1[3].text
+        bitcoin = elem1[8].text
+
+
+        
+
+        bot.reply_to(message,tala)
+    except:
+        bot.reply_to(message,"404 not found")
         
 
 
