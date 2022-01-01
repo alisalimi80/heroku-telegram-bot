@@ -117,21 +117,11 @@ def send_welcome(message):
         
 @bot.message_handler(commands=['hello'])
 def send_welcome(message):
-    url = "https://www.tgju.org/"
-    req = requests.get(url)
-    soup = BeautifulSoup(req.text, "html.parser")
-
-    elem1 = soup.find_all(class_='info-price')
-    dolar = elem1[5].text
-    teter = elem1[7].text
-    tala = elem1[3].text
-    bitcoin = elem1[8].text
-    seke = elem1[4].text
     markup = types.ReplyKeyboardMarkup()
-    itembtna = types.KeyboardButton('Bitcoin')
-    itembtnv = types.KeyboardButton('Tala')
-    itembtnc = types.KeyboardButton('dolar')
-    itembtnd = types.KeyboardButton('teter')
+    itembtna = types.KeyboardButton('a')
+    itembtnv = types.KeyboardButton('v')
+    itembtnc = types.KeyboardButton('c')
+    itembtnd = types.KeyboardButton('d')
     itembtne = types.KeyboardButton('e')
     markup.row(itembtna, itembtnv)
     markup.row(itembtnc, itembtnd, itembtne)
