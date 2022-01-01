@@ -6,8 +6,7 @@ from bs4 import BeautifulSoup
 import requests
 import telebot
 from telebot import types
-
-
+import tb
 
 API_TOKEN = '5051387618:AAEFB8Pb79B3UVNqmWaOZXVtLKUqqq4GSEI'
 
@@ -116,23 +115,28 @@ def send_welcome(message):
     except:
         bot.reply_to(message,"404 not found")
         
-    
 @bot.message_handler(commands=['hello'])
 def send_welcome(message):
+    url = "https://www.tgju.org/"
+    req = requests.get(url)
+    soup = BeautifulSoup(req.text, "html.parser")
+
+    elem1 = soup.find_all(class_='info-price')
+    dolar = elem1[5].text
+    teter = elem1[7].text
+    tala = elem1[3].text
+    bitcoin = elem1[8].text
+    seke = elem1[4].text
     markup = types.ReplyKeyboardMarkup()
-    itembtna = types.KeyboardButton('a')
-    itembtnv = types.KeyboardButton('v')
-    itembtnc = types.KeyboardButton('c')
-    itembtnd = types.KeyboardButton('d')
-    itembtne = types.KeyboardButton('e')
+    itembtna = types.KeyboardButton('Bitcoin',reply_markup=bitcoin)
+    itembtnv = types.KeyboardButton('Tala',reply_markup=tala)
+    itembtnc = types.KeyboardButton('dolar',reply_markup=dolar)
+    itembtnd = types.KeyboardButton('teter',reply_markup=teter)
+    itembtne = types.KeyboardButton('e',reply_markup=seke)
     markup.row(itembtna, itembtnv)
     markup.row(itembtnc, itembtnd, itembtne)
     cid = message.chat.id
     bot.send_message(cid, "Choose one letter:", reply_markup=markup)
-    
-        
-
-    
 
 
 # Handle all other messages with content_type 'text' (content_types defaults to ['text'])
