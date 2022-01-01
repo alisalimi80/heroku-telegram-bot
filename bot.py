@@ -128,11 +128,11 @@ def send_welcome(message):
     bitcoin = elem1[8].text
     seke = elem1[4].text
     markup = types.ReplyKeyboardMarkup()
-    itembtna = types.KeyboardButton('Bitcoin',reply_markup=bitcoin)
-    itembtnv = types.KeyboardButton('Tala',reply_markup=tala)
-    itembtnc = types.KeyboardButton('dolar',reply_markup=dolar)
-    itembtnd = types.KeyboardButton('teter',reply_markup=teter)
-    itembtne = types.KeyboardButton('e',reply_markup=seke)
+    itembtna = types.KeyboardButton('Bitcoin')
+    itembtnv = types.KeyboardButton('Tala')
+    itembtnc = types.KeyboardButton('dolar')
+    itembtnd = types.KeyboardButton('teter')
+    itembtne = types.KeyboardButton('e')
     markup.row(itembtna, itembtnv)
     markup.row(itembtnc, itembtnd, itembtne)
     cid = message.chat.id
