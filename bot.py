@@ -139,7 +139,7 @@ def send_welcome(message):
     markup.row(itembtna, itembtnv)
     markup.row(itembtnc, itembtnd, itembtne)
     cid = message.chat.id
-    msg = bot.send_message(cid, "Choose one letter:", reply_markup=replyfunc(message,markup))
+    bot.send_message(cid, "Choose one letter:", reply_markup=replyfunc(message,markup))
     # bot.register_next_step_handler(msg, lng_select)
 def replyfunc(message,markup):
     url = "https://www.tgju.org/"
