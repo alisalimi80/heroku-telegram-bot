@@ -139,16 +139,14 @@ def send_welcome(message):
     markup.row(itembtna, itembtnv)
     markup.row(itembtnc, itembtnd, itembtne)
     cid = message.chat.id
-    msg = bot.send_message(cid, "Choose one letter:", reply_markup=replyfunc(message,markup))
+    msg = bot.send_message(cid, "Choose one letter:")
+    replyfunc(message,markup)
 
     # bot.register_next_step_handler(msg, lng_select)
 def replyfunc(message,markup):
     url = "https://www.tgju.org/"
     req = requests.get(url)
     soup = BeautifulSoup(req.text, "html.parser")
-    results = soup.findAll("tr", {"data-market-row" : "price_eur"})
-    euro1 = (results[0].text).split("\n")
-    euro = euro1[2]
     elem1 = soup.find_all(class_='info-price')
     dolar = elem1[5].text
     teter = elem1[7].text
