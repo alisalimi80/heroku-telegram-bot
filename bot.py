@@ -120,9 +120,9 @@ def send_welcome(message):
     url = "https://www.tgju.org/"
     req = requests.get(url)
     soup = BeautifulSoup(req.text, "html.parser")
-    results = soup.findAll("tr", {"data-market-row" : "price_eur"})
-    euro1 = (results[0].text).split("\n")
-    euro = euro1[2]
+    # results = soup.findAll("tr", {"data-market-row" : "price_eur"})
+    # euro1 = (results[0].text).split("\n")
+    # euro = euro1[2]
     elem1 = soup.find_all(class_='info-price')
     dolar = elem1[5].text
     teter = elem1[7].text
@@ -139,9 +139,35 @@ def send_welcome(message):
     markup.row(itembtna, itembtnv)
     markup.row(itembtnc, itembtnd, itembtne)
     cid = message.chat.id
-    bot.send_message(cid, "Choose one letter:", reply_markup=markup))
-    # bot.register_next_step_handler(msg, lng_select)
+    msg = bot.send_message(cid, "Choose one letter:", reply_markup=markup)
 
+    # bot.register_next_step_handler(msg, lng_select)
+# def replyfunc(message,markup):
+#     url = "https://www.tgju.org/"
+#     req = requests.get(url)
+#     soup = BeautifulSoup(req.text, "html.parser")
+#     results = soup.findAll("tr", {"data-market-row" : "price_eur"})
+#     euro1 = (results[0].text).split("\n")
+#     euro = euro1[2]
+#     elem1 = soup.find_all(class_='info-price')
+#     dolar = elem1[5].text
+#     teter = elem1[7].text
+#     tala = elem1[3].text
+#     bitcoin = elem1[8].text
+#     seke = elem1[4].text
+#     cid = message.chat.id
+#     if markup == "Bitcoin":
+#         bot.send_message(cid,bitcoin)
+#     elif markup == "Tala":
+#         bot.send_message(cid,tala)
+#     elif markup == "Seke":
+#         bot.send_message(cid,seke)
+#     elif markup == "Dolar":
+#         bot.send_message(cid,dolar)
+#     elif markup == "Euro":
+#         bot.send_message(cid,euro)
+#     elif markup == "Teter":
+#         bot.send_message(cid,teter)
 
 
 
